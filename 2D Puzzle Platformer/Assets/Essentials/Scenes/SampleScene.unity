@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 172744471}
   - component: {fileID: 172744474}
   - component: {fileID: 172744473}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Square (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7020,7 +7020,7 @@ GameObject:
   - component: {fileID: 1530659273}
   - component: {fileID: 1530659276}
   - component: {fileID: 1530659275}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Square (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7521,7 +7521,7 @@ MonoBehaviour:
   wallSlideSpeed: 1
   wallLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   isWallJumping: 0
   wallJumpTime: 1
   wallJumpPower: {x: 16, y: 16}
