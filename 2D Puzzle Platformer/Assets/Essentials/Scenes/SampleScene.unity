@@ -858,7 +858,7 @@ Transform:
   m_GameObject: {fileID: 303263375}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.52, z: -10}
+  m_LocalPosition: {x: 8.47, y: 1.87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1129,6 +1129,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380945575}
   m_CullTransparentMesh: 1
+--- !u!1 &404951443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 404951444}
+  m_Layer: 0
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &404951444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404951443}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.491, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1620074398}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &431177467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2295,7 +2326,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.52, z: -10}
+  m_LocalPosition: {x: 8.47, y: 1.87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3369,7 +3400,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A & D Movement  \nLeft Shit Dash \nBeta 1.0.5"
+  m_text: "A & D Movement  \nLeft Shit Dash \nBeta 1.0.7"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7284,10 +7315,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1620074398}
   - component: {fileID: 1620074397}
-  - component: {fileID: 1620074396}
   - component: {fileID: 1620074395}
   - component: {fileID: 1620074394}
+  - component: {fileID: 1620074396}
   - component: {fileID: 1620074399}
+  - component: {fileID: 1620074400}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7381,11 +7413,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5.4
   jumpingPower: 12
+  isFacingRight: 1
   rb: {fileID: 1620074394}
   groundCheck: {fileID: 791848561}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _playerWallJumpScript: {fileID: 1620074400}
 --- !u!212 &1620074397
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7447,12 +7481,13 @@ Transform:
   m_GameObject: {fileID: 1620074393}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.52, z: 0}
+  m_LocalPosition: {x: 8.47, y: 1.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 791848561}
   - {fileID: 1784079036}
+  - {fileID: 404951444}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1620074399
@@ -7469,6 +7504,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashDistance: 5
   dashCooldown: 2
+--- !u!114 &1620074400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620074393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beaab64698815f849b20a08b65f3f9a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMovementScript: {fileID: 1620074396}
+  wallCheck: {fileID: 404951444}
+  wallSlideSpeed: 1
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isWallJumping: 0
+  wallJumpTime: 1
+  wallJumpPower: {x: 16, y: 16}
 --- !u!1 &1635285050
 GameObject:
   m_ObjectHideFlags: 0

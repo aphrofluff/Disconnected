@@ -5,11 +5,12 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
 	[SerializeField] private float speed = 5f;
 	[SerializeField] private float jumpingPower = 13f;
-    private bool isFacingRight = true;
+    public bool isFacingRight = true;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private PlayerWallJump _playerWallJumpScript;
 
     void Update()
     {
@@ -25,15 +26,21 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-        Flip();
+        if(!_playerWallJumpScript.isWallJumping)
+        {
+            Flip();
+        }
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        if(!_playerWallJumpScript.isWallJumping)
+        {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
