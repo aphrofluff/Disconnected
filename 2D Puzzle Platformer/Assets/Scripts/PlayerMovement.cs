@@ -16,11 +16,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerWallJump _playerWallJumpScript;
     [SerializeField] private TrailRenderer tr;
 
-	private bool canDash = true;
+	public bool canDash = true;
 	private bool isDashing;
     private float dashingPower = 24f;
     private float dashingTime = 0.15f;
-	[SerializeField] private float dashingcooldown = 1f;
+	public float dashingcooldown = 1f;
 
 	void Update()
     {
