@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,15 +19,16 @@ public class DashGUI : MonoBehaviour
             StartCoroutine(StartCooldown());
             isFirstPress = false;
         }
-        else if(!isFirstPress && Input.GetKeyDown(KeyCode.LeftShift) && _playerMovementScript.canDash)
+        else if (!isFirstPress && Input.GetKeyDown(KeyCode.LeftShift) && _playerMovementScript.canDash)
         {
             StartCoroutine(StartCooldown());
+            isFirstPress = false; // Reset isFirstPress here
         }
     }
 
     void SelectDash()
     {
-        if(_playerMovementScript.canDash)
+        if (_playerMovementScript.canDash)
         {
             dashImage.fillAmount = 0f;
         }
@@ -47,7 +47,7 @@ public class DashGUI : MonoBehaviour
         }
 
         currentValue = _playerMovementScript.dashingcooldown;
-        _playerMovementScript.canDash = true;
+        _playerMovementScript.canDash = false;
 
         while (currentValue > 0)
         {
@@ -56,6 +56,7 @@ public class DashGUI : MonoBehaviour
         }
 
         currentValue = 0f;
-        _playerMovementScript.canDash = false;
+        _playerMovementScript.canDash = true;
+        isFirstPress = true; // Reset isFirstPress after cooldown is complete
     }
 }

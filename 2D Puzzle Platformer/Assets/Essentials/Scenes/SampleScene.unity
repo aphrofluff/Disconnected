@@ -6416,7 +6416,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1745938901
-  m_SortingOrder: 0
+  m_SortingOrder: 32
   m_TargetDisplay: 0
 --- !u!1 &1346771015
 GameObject:
