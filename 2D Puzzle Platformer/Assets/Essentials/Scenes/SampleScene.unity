@@ -7844,8 +7844,8 @@ MonoBehaviour:
   wallJumpingDuration: 0.4
   wallJumpingPower: {x: 16.8, y: 16}
   canDash: 1
+  dashingPower: 24
   dashingTime: 0.3
-  dashingcooldown: 1
   dashingCooldown: 1
   rb: {fileID: 1620074394}
   groundCheck: {fileID: 791848561}

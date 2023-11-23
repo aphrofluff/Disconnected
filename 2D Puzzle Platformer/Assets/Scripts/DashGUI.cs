@@ -34,7 +34,7 @@ public class DashGUI : MonoBehaviour
         }
         else
         {
-            dashImage.fillAmount = currentValue / _playerManagerScript.dashingcooldown;
+            dashImage.fillAmount = currentValue / _playerManagerScript.dashingCooldown;
         }
     }
 
@@ -46,7 +46,7 @@ public class DashGUI : MonoBehaviour
             isFirstPress = false;
         }
 
-        currentValue = _playerManagerScript.dashingcooldown;
+        currentValue = _playerManagerScript.dashingCooldown;
         _playerManagerScript.canDash = false;
 
         while (currentValue > 0)

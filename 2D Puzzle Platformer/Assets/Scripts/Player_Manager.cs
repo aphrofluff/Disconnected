@@ -10,23 +10,20 @@ public class Player_Manager : MonoBehaviour
     private bool isFacingRight = true;
     private bool isWallSliding;
     private bool isWallJumping;
+    private float wallJumpingDirection;
+    private float wallJumpingCounter;
+	private bool isDashing;
+    private int dashCount = 0;
+    private int maxDashCount = 1;
     public float speed = 8f;
     public float jumpingPower = 16f;
     public float wallSlidingSpeed = 2f;
-
-
-    private float wallJumpingDirection;
     public float wallJumpingTime = 0.2f;
-    private float wallJumpingCounter;
     public float wallJumpingDuration = 0.4f;
     public Vector2 wallJumpingPower = new Vector2(8f, 16f);
 	public bool canDash = true;
-	private bool isDashing;
-    private float dashingPower = 24f;
+    public float dashingPower = 24f;
     public float dashingTime = 0.15f;
-	public float dashingcooldown = 1f;
-    private int dashCount = 0;
-    private int maxDashCount = 1;
     public float dashingCooldown = 1f;
 
     [SerializeField] private Rigidbody2D rb;
