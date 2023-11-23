@@ -7835,14 +7835,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80212920cdf9e1049919737e931917b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tr: {fileID: 1620074401}
   _pauseMenuScript: {fileID: 1520851298}
+  speed: 8
+  jumpingPower: 16
+  wallSlidingSpeed: 2
   wallJumpingTime: 0.2
   wallJumpingDuration: 0.4
   wallJumpingPower: {x: 16.8, y: 16}
-  tr: {fileID: 1620074401}
   canDash: 1
   dashingTime: 0.3
   dashingcooldown: 1
+  dashingCooldown: 1
   rb: {fileID: 1620074394}
   groundCheck: {fileID: 791848561}
   groundLayer:
