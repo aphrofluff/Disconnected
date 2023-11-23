@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player_Manager : MonoBehaviour
 {
+    [SerializeField] PauseMenu _pauseMenuScript;
     private float horizontal;
     private float speed = 8f;
     private float jumpingPower = 16f;
@@ -22,7 +23,7 @@ public class Player_Manager : MonoBehaviour
 	public bool canDash = true;
 	private bool isDashing;
     private float dashingPower = 24f;
-    private float dashingTime = 0.15f;
+    public float dashingTime = 0.15f;
 	public float dashingcooldown = 1f;
 
     [SerializeField] private Rigidbody2D rb;
@@ -58,7 +59,7 @@ public class Player_Manager : MonoBehaviour
         WallSlide();
         WallJump();
 
-        if (!isWallJumping)
+        if (!isWallJumping && _pauseMenuScript.playerCanFlip)
         {
             Flip();
         }
