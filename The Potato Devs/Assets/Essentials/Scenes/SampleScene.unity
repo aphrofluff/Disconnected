@@ -155,23 +155,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80212920cdf9e1049919737e931917b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallJumpingTime: 0.2
-  wallJumpingDuration: 0.4
-  wallJumpingPower: {x: 8, y: 16}
-  tr: {fileID: 135973523}
-  canDash: 1
-  dashingPower: 50
-  dashingTime: 0.1
-  dashingcooldown: 1
+  horizontal: 0
+  speed: 8
+  jumpingPower: 16
   rb: {fileID: 135973519}
   groundCheck: {fileID: 1322299777}
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  wallSlidingSpeed: 2
+  wallJumpingTime: 0.2
+  wallJumpingDuration: 0.4
+  wallJumpingPower: {x: 8, y: 16}
   wallCheck: {fileID: 454273267}
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
+  dashingcooldown: 1
+  dashingTime: 0.1
+  dashingPower: 50
+  canDash: 1
+  tr: {fileID: 135973523}
 --- !u!50 &135973519
 Rigidbody2D:
   serializedVersion: 4
@@ -1587,6 +1591,7 @@ GameObject:
   - component: {fileID: 1986638915}
   - component: {fileID: 1986638917}
   - component: {fileID: 1986638916}
+  - component: {fileID: 1986638918}
   m_Layer: 0
   m_Name: PlayerBody
   m_TagString: Untagged
@@ -1671,7 +1676,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1658987275, guid: d6edf79f659110743a90f71fe45457e5, type: 3}
+  m_Sprite: {fileID: -987156477, guid: b199a119022c06f418533d91f9bc6e35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1682,6 +1687,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1986638918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986638914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d002e1fcf14f57e4495e76a5244a81ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2146414240
 GameObject:
   m_ObjectHideFlags: 0
