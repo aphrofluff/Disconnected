@@ -155,23 +155,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80212920cdf9e1049919737e931917b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallJumpingTime: 0.2
-  wallJumpingDuration: 0.4
-  wallJumpingPower: {x: 8, y: 16}
-  tr: {fileID: 135973523}
-  canDash: 1
-  dashingPower: 50
-  dashingTime: 0.1
-  dashingcooldown: 1
+  speed: 12
+  jumpingPower: 16
   rb: {fileID: 135973519}
   groundCheck: {fileID: 1322299777}
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  wallSlidingSpeed: 2
+  wallJumpingTime: 0.2
+  wallJumpingDuration: 0.4
+  wallJumpingPower: {x: 8, y: 16}
   wallCheck: {fileID: 454273267}
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
+  dashingcooldown: 1
+  dashingTime: 0.1
+  dashingPower: 50
+  canDash: 1
+  tr: {fileID: 135973523}
 --- !u!50 &135973519
 Rigidbody2D:
   serializedVersion: 4
