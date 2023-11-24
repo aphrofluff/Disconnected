@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +8,15 @@ public class DashGUI : MonoBehaviour
     [SerializeField] Player_Manager _playerManagerScript;
 
     private bool isFirstPress = true;
+    private bool _canDash;
     float currentValue;
     [SerializeField] private Image dashImage;
+
+    void Start()
+    {
+        currentValue = 0f;
+        dashImage.fillAmount = 1f;
+    }
 
     void Update()
     {
@@ -19,7 +27,7 @@ public class DashGUI : MonoBehaviour
             StartCoroutine(StartCooldown());
             isFirstPress = false;
         }
-        else if (!isFirstPress && Input.GetKeyDown(KeyCode.LeftShift) && _playerManagerScript.canDash)
+        else if (!isFirstPress && Input.GetKeyDown(KeyCode.LeftShift) && _canDash)
         {
             StartCoroutine(StartCooldown());
             isFirstPress = false;
@@ -28,7 +36,7 @@ public class DashGUI : MonoBehaviour
 
     void SelectDash()
     {
-        if (_playerManagerScript.canDash)
+        if (_canDash)
         {
             dashImage.fillAmount = 0f;
         }
@@ -42,12 +50,12 @@ public class DashGUI : MonoBehaviour
     {
         if (isFirstPress)
         {
-            _playerManagerScript.canDash = true;
+            _canDash = true;
             isFirstPress = false;
         }
 
         currentValue = _playerManagerScript.dashingcooldown;
-        _playerManagerScript.canDash = false;
+        _canDash = false;
 
         while (currentValue > 0)
         {
@@ -56,7 +64,7 @@ public class DashGUI : MonoBehaviour
         }
 
         currentValue = 0f;
-        _playerManagerScript.canDash = true;
-        isFirstPress = true;
+        yield return new WaitForSeconds(_playerManagerScript.dashingTime);
+        _canDash = true;
     }
 }

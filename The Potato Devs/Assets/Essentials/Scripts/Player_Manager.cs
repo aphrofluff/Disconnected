@@ -4,34 +4,38 @@ using UnityEngine;
 
 public class Player_Manager : MonoBehaviour
 {
+    [Header("Basic Movement")]
     private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 16f;
     private bool isFacingRight = true;
-
-    private bool isWallSliding;
-    private float wallSlidingSpeed = 2f;
-
-    private bool isWallJumping;
-    private float wallJumpingDirection;
-    public float wallJumpingTime = 0.2f;
-    private float wallJumpingCounter;
-    public float wallJumpingDuration = 0.4f;
-    public Vector2 wallJumpingPower = new Vector2(8f, 16f);
-
-    // Dash
-    [SerializeField] private TrailRenderer tr;
-	public bool canDash = true;
-	private bool isDashing;
-	[SerializeField] private float dashingPower = 24f;
-	[SerializeField] private float dashingTime = 0.15f;
-	public float dashingcooldown = 1f;
-
+    [SerializeField] private float speed = 8f;
+    [SerializeField] private float jumpingPower = 16f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+
+
+    [Header("Wall Jump")]
+    [SerializeField] private float wallSlidingSpeed = 2f;
+    [SerializeField] private float wallJumpingTime = 0.2f;
+    [SerializeField] private float wallJumpingDuration = 0.4f;
+    [SerializeField] public Vector2 wallJumpingPower = new Vector2(8f, 16f);
+
+    private bool isWallSliding;
+    private bool isWallJumping;
+    private float wallJumpingDirection;
+    private float wallJumpingCounter;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
+
+
+    [Header("Dash")]
+	[SerializeField] public float dashingcooldown = 1f;
+	[SerializeField] public float dashingTime = 0.15f;
+	[SerializeField] private float dashingPower = 24f;
+    [HideInInspector] public bool canDash = true;
+    [SerializeField] private TrailRenderer tr;
+	private bool isDashing;
+
 
     private void Update()
     {
