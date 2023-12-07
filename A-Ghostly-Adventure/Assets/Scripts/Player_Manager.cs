@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player_Manager : MonoBehaviour
 {
-    [Header("Basic Movement")]
+	//Basic Movement
+	[Header("Basic Movement")]
     [HideInInspector] public float horizontal;
     private bool isFacingRight = true;
     [SerializeField] private float speed = 8f;
@@ -13,22 +14,22 @@ public class Player_Manager : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
-
-    [Header("Wall Jump")]
-    [SerializeField] private float wallSlidingSpeed = 2f;
+	//Wall Jump
+	[Header("Wall Jump")]
+	[SerializeField] private float wallSlidingSpeed = 2f;
     [SerializeField] private float wallJumpingTime = 0.2f;
     [SerializeField] private float wallJumpingDuration = 0.4f;
-    [SerializeField] public Vector2 wallJumpingPower = new Vector2(8f, 16f);
-
-    private bool isWallSliding;
+    public Vector2 wallJumpingPower = new Vector2(8f, 16f);
+	
+	private bool isWallSliding;
     private bool isWallJumping;
     private float wallJumpingDirection;
     private float wallJumpingCounter;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
-
-    [Header("Dash")]
+	//Dash
+	[Header("Dash")]
 	[SerializeField] public float dashingcooldown = 1f;
 	[SerializeField] public float dashingTime = 0.15f;
 	[SerializeField] private float dashingPower = 24f;
@@ -123,7 +124,7 @@ public class Player_Manager : MonoBehaviour
         if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
         {
             isWallJumping = true;
-            rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x * 2f, wallJumpingPower.y);
             wallJumpingCounter = 0f;
 
             if (transform.localScale.x != wallJumpingDirection)
@@ -160,8 +161,8 @@ public class Player_Manager : MonoBehaviour
         isDashing = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
-        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
-        tr.emitting = true;
+		rb.AddForce(new Vector2(1f, 0f) * transform.localScale * dashingPower * 50f, ForceMode2D.Impulse);
+		tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
         tr.emitting = false;
         rb.gravityScale = originalGravity;
