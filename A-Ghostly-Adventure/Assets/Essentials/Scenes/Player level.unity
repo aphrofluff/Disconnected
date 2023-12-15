@@ -165,7 +165,7 @@ MonoBehaviour:
     m_Bits: 128
   wallSlidingSpeed: 2
   wallJumpingTime: 0.1
-  wallJumpingDuration: 0.1
+  wallJumpingDuration: 0.3
   wallJumpingPower: {x: 8, y: 16}
   wallCheck: {fileID: 454273267}
   wallLayer:
