@@ -6,6 +6,7 @@ public class PlayerAnimationManager : MonoBehaviour
 {
     Animator anim;
     Player_Manager _playerManagerScript;
+    [SerializeField] PauseMenu _pauseMenuScript;
 
     string currentState;
 
@@ -20,7 +21,7 @@ public class PlayerAnimationManager : MonoBehaviour
 
     void Update()
     {
-        if(_playerManagerScript.IsGrounded())
+        if(_playerManagerScript.IsGrounded() && !_pauseMenuScript.isPaused)
         {
             if(_playerManagerScript.horizontal != 0)
             {

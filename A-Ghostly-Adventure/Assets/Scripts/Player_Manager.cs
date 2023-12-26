@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player_Manager : MonoBehaviour
 {
+    [SerializeField] PauseMenu _pauseMenuScript;
+
 	//Basic Movement
 	[Header("Basic Movement")]
     [HideInInspector] public float horizontal;
@@ -65,7 +67,7 @@ public class Player_Manager : MonoBehaviour
         WallSlide();
         WallJump();
 
-        if (!isWallJumping)
+        if (!isWallJumping && !_pauseMenuScript.isPaused)
         {
             Flip();
         }
