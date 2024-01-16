@@ -51,7 +51,7 @@ public class SlimeAI : MonoBehaviour
     IEnumerator AttackPlayer()
     {
         isAttacking = true;
-        // Add your attack animation or logic here
+        Debug.Log("Slime Attacked");
 
         yield return new WaitForSeconds(attackCooldown);
 
